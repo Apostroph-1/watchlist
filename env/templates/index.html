@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ name }}'s Watchlist</title>{#双大括号内是变量#}
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">{#显示在标签页和书签栏的网站头像用的Favicon#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">{#在页面的head标签内引入这个CSS文件，用来调整页面的布局#}
+</head>
+<body>
+    <h2>
+        <img alt="Avatar" src="{{ url_for('static', filename='images/avatar.png') }}">{#导入静态图片在static文件夹内#}
+        {{ name }}'s Watchlist
+    </h2>
+    <p>{{ movies|length }} Titles</p>{#变量|过滤器#}
+    <ul class="movie-list">{#对应的元素设置class属性值,以便和对应的CSS定义关联起来#}
+        {% for movie in movies %}{#这种形式里面就是for循环#}
+            <li>{{ movie.title }} - {{ movie.year }}</li>
+        {% endfor %}
+    </ul>
+    <img alt="Walking Totoro" src="{{ url_for('static', filename='images/totoro.gif') }}">{#导入动态图片#}
+    <footer>
+        <small>&copy; 2018 <a href="http://helloflask.com/book/3">HelloFlask</a></small>
+    </footer>
+</body>
+</html>
