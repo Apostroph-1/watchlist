@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ name }}'s Watchlist</title>{#双大括号内是变量#}
+    <title>{{ user.name }}'s Watchlist</title>{#双大括号内是变量#}
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">{#显示在标签页和书签栏的网站头像用的Favicon#}
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">{#在页面的head标签内引入这个CSS文件，用来调整页面的布局#}
 </head>
 <body>
     <h2>
         <img alt="Avatar" src="{{ url_for('static', filename='images/avatar.png') }}">{#导入静态图片在static文件夹内#}
-        {{ name }}'s Watchlist
+        {{ user.name }}'s Watchlist
     </h2>
     <p>{{ movies|length }} Titles</p>{#变量|过滤器#}
     <ul class="movie-list">{#对应的元素设置class属性值,以便和对应的CSS定义关联起来#}
